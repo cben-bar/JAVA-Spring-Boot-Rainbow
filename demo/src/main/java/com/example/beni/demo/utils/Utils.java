@@ -13,4 +13,13 @@ public class Utils {
             System.out.println("Iterator = " + iterator);
             recursiveFunction(iterator - 1);}
     }
+
+    public static void isRank(final int rank) {
+        switch (rank) {
+            case 1 -> System.out.println("Little");
+            case 5 -> System.out.println("Medium");
+            case 10 -> System.out.println("Faaaat");
+            default -> System.out.println("I don't know!");
+        }
+    }
 }

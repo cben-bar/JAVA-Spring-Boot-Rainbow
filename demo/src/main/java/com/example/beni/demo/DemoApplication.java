@@ -15,6 +15,12 @@ public class DemoApplication {
 	Utils.freeStringDisplay(null);
 	Utils.freeStringDisplay("----an other class's function was called------");
 	Utils.recursiveFunction(5);
+
+	Utils.isRank(1);
+	Utils.isRank(5);
+	Utils.isRank(10);
+	Utils.isRank(15);
+
 	}
 
 	public static void display() {
