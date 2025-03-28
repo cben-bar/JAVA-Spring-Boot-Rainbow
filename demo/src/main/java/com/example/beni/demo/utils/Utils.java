@@ -1,8 +1,5 @@
 package com.example.beni.demo.utils;
 
-import java.beans.JavaBean;
-
-@JavaBean
 public class Utils {
     public static void freeStringDisplay(String txt) {
         System.out.println(txt);
