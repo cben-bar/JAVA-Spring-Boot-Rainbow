@@ -26,6 +26,12 @@ public class Wall extends Bloc {
         System.out.println("I am a wall!");
     }
 
+    @Override
+    public void displayDensity() {
+        System.out.println("My density is 7");
+
+    }
+
     // overload
     public void displayDescription(final String description) {
         System.out.println(description);

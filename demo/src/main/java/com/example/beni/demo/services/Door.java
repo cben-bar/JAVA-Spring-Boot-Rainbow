@@ -31,6 +31,12 @@ public class Door extends Bloc {
         System.out.println(description);
     }
 
+    @Override
+    public void displayDensity() {
+        System.out.println("My density is 3");
+
+    }
+
     // GETTERS
     public String getName() {
         return this.name;

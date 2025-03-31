@@ -1,6 +1,6 @@
 package com.example.beni.demo.services;
 
-public abstract class Bloc {
+public abstract class Bloc implements IBloc {
 
     protected int length;
     protected int width;
