@@ -23,7 +23,9 @@ public class Door extends Bloc {
     // override
     @Override
     public void displayDescription() {
-        System.out.println("I am a door!");
+        System.out.println("I am a door named: " + name);
+        this.displayBloc();
+
     }
 
     // overload
@@ -31,7 +33,6 @@ public class Door extends Bloc {
         System.out.println(description);
     }
 
-    @Override
     public void displayDensity() {
         System.out.println("My density is 3");
 
@@ -49,6 +50,10 @@ public class Door extends Bloc {
     // SETTERS
     public void setOpenable(boolean openable) {
         this.openable = openable;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     // DISPLAY
@@ -71,4 +76,8 @@ public class Door extends Bloc {
     public boolean isOpenable() {
         return openable;
     }
+
+    // public void lock() throws AlreadyLockedDoor {
+    // if (!openable) {throws AlreadyLockedDoor();} else {openable = false;}
+    // }
 }

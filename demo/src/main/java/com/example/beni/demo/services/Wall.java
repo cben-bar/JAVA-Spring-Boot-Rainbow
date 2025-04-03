@@ -23,10 +23,10 @@ public class Wall extends Bloc {
     // override
     @Override
     public void displayDescription() {
-        System.out.println("I am a wall!");
+        System.out.println("I am a wall named: " + name);
+        this.displayBloc();
     }
 
-    @Override
     public void displayDensity() {
         System.out.println("My density is 7");
 
@@ -45,6 +45,10 @@ public class Wall extends Bloc {
     // SETTERS
     public void setLoadBearing(boolean loadB) {
         this.loadBearing = loadB;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     // DISPLAY
