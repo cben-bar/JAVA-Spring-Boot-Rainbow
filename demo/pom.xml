@@ -149,6 +149,24 @@
             <version>5.4.0</version>
             <scope>test</scope>
         </dependency>
+        <!-- Log4j API -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.24.3</version>
+        </dependency>
+        <!-- Log4j Core (nécessaire pour l'écriture des logs) -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.24.3</version>
+        </dependency>
+        <!-- Log4j Bridge (optionnel, utile pour rediriger les logs de java.util.logging) -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-jul</artifactId>
+            <version>2.24.3</version>
+        </dependency>
 	</dependencies>
 	<build>
 		<plugins>
@@ -181,10 +199,6 @@
                     <release>${java.version}</release>
                 </configuration>
             </plugin>
-			<!-- <plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin> -->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>

@@ -1,5 +1,7 @@
 package com.example.beni.demo.services;
 
+import com.example.beni.demo.exceptions.AlreadyLockedDoorException;
+
 public class Door extends Bloc {
 
     private boolean openable;
@@ -70,14 +72,18 @@ public class Door extends Bloc {
 
     public void texture() {
         System.out.println("Texture: wood");
-    };
-
+    }
+    
     // BOOLEANS
     public boolean isOpenable() {
         return openable;
     }
 
-    // public void lock() throws AlreadyLockedDoor {
-    // if (!openable) {throws AlreadyLockedDoor();} else {openable = false;}
-    // }
+	public void lock() throws AlreadyLockedDoorException {
+		if (!isOpenable()) {
+			throw new AlreadyLockedDoorException("Door is already lock!");
+		} else {
+			openable = false;
+        }
+    }
 }

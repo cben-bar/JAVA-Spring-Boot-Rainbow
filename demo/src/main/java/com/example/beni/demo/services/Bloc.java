@@ -10,6 +10,7 @@ public abstract class Bloc implements IBloc {
     protected int width;
     protected int height;
     protected String id;
+    protected Colors color;
 
     public Bloc(final int length, final int width, final int height) {
         if (length < MIN_LENGTH) {
@@ -32,6 +33,10 @@ public abstract class Bloc implements IBloc {
 
     public void displayDescription() {
         System.out.println("I am a bloc!");
+    }
+
+    public void setColor(Colors color) {
+        this.color = color;
     }
 
     public abstract void texture();

@@ -7,12 +7,14 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import com.example.beni.demo.services.Door;
+import com.example.beni.demo.services.Kit;
 import com.example.beni.demo.services.Planet;
 import com.example.beni.demo.services.Bloc;
 import com.example.beni.demo.services.BlocManager;
-import com.example.beni.demo.services.Rampart;
+// import com.example.beni.demo.services.Rampart;
 import com.example.beni.demo.services.Wall;
 
+// import lombok.ToString;
 import lombok.var;
 
 import com.example.beni.demo.services.TerminalColor;
@@ -65,10 +67,10 @@ public class DemoApplication {
 		firstDoor.displayDensity();
 		firstDoor.displayTexture();
 
-		System.out.println(
-				TerminalColor.YELLOW.getCode() + "==========================Rampart==========================");
-		Rampart firstRampart = new Rampart(firstWall);
-		System.out.println(firstRampart.toString());
+		// System.out.println(
+		// 		TerminalColor.YELLOW.getCode() + "==========================Rampart==========================");
+		// Rampart firstRampart = new Rampart(firstWall);
+		// System.out.println(firstRampart.toString());
 
 		System.out.println("==========================Planet(Record)==========================");
 		var earth = new Planet("Earth", 400.017, 510067420);
@@ -77,8 +79,8 @@ public class DemoApplication {
 		System.out.println(
 				TerminalColor.PURPLE_BOLD.getCode() + "==========================MAP==========================");
 		Map<Bloc, Integer> quantityBloc = new HashMap<Bloc, Integer>();
-		quantityBloc.put(new Wall(1, 1, 1, "MapWall", false), 16);
-		quantityBloc.put(new Door(1, 1, 1, "MapDoor", false), 4);
+		quantityBloc.put(new Wall(300, 1, 1, "MapWall", false), 16);
+		quantityBloc.put(new Door(500, 1, 1, "MapDoor", false), 4);
 
 		Set<Bloc> keys = quantityBloc.keySet();
 		for (Bloc key : keys) {
@@ -106,10 +108,10 @@ public class DemoApplication {
 				+ "==========================LINKEDLIST WITH ADD OF MANAGER=========================="
 
 		);
-		managerBloc.addWall(70, 50, 100, "Wall" + "i", true);
+		managerBloc.addWall(700, 50, 100, "Wall" + "i", true);
 
 		managerBloc.displayAllBlocs();
-		System.out.println("Nom du Wall récupéré : " + ((Wall) firstWall).getName());
+		// System.out.println("Nom du Wall récupéré : " + ((Wall) firstWall).getName());
 
 		Bloc foundBloc = managerBloc.getBlocByName("DoorA");
 		if (foundBloc instanceof Wall || foundBloc instanceof Door) {
@@ -133,8 +135,13 @@ public class DemoApplication {
 		managerBloc.displayInt(managerBloc.getSize());
 		System.out.println(managerBloc.getSize());
 
+		Kit starterKit = new Kit();
+		starterKit.saveKit();
+		System.out.println(starterKit.toString());
+
 		System.out.println(TerminalColor.reset());
 
+		
 	}
 
 }

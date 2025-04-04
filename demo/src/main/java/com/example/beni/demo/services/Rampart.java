@@ -1,9 +1,9 @@
-package com.example.beni.demo.services;
+// package com.example.beni.demo.services;
 
-public class Rampart {
-    private IBloc bloc;
+// public class Rampart {
+//     private IBloc bloc;
 
-    public Rampart(final IBloc bloc) {
-        this.bloc = bloc;
-    }
-}
+//     public Rampart(final IBloc bloc) {
+//         this.bloc = bloc;
+//     }
+// }
