@@ -9,6 +9,7 @@ import java.util.Set;
 import com.example.beni.demo.services.Door;
 import com.example.beni.demo.services.Kit;
 import com.example.beni.demo.services.Planet;
+import com.example.beni.demo.services.Reader;
 import com.example.beni.demo.services.Bloc;
 import com.example.beni.demo.services.BlocManager;
 // import com.example.beni.demo.services.Rampart;
@@ -139,11 +140,12 @@ public class DemoApplication {
 		starterKit.saveKit();
 		System.out.println(starterKit.toString());
 
+
+		Reader reader = new Reader(null);
+		reader.readConsole();
+
 		System.out.println(TerminalColor.reset());
-
-		
 	}
-
 }
 
 // import java.util.List;

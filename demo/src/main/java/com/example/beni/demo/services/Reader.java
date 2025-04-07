@@ -5,6 +5,7 @@ import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.InputStreamReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.NoSuchFileException;
@@ -29,10 +30,10 @@ public class Reader {
                 System.out.println(line);
             }
         } catch(FileNotFoundException e) {
-            // logger.error("Le fichier kit.txt n'existe pas.");
+            // logger.error("The file kit.txt does not exist.");
             System.out.println("File does not exist.");
         } catch (IOException e) {
-            // logger.error("Impossible de lire le fichier kit.txt");
+            // logger.error("Impossible to read file: kit.txt");
             System.out.println("Impossible to read the file.");
 
         }
@@ -50,45 +51,33 @@ public class Reader {
     }
 
     public void save() {
-        StringBuilder builder = new StringBuilder();
         String date = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyyMMdd"));
-        try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter("copy" + date + ".txt"));
-            writer.write(builder.toString());
-            writer.close(); } catch (IOException e) {
-                System.out.println("Impossible to write in file.");
-                // logger.error("Impossible to write in file.");
+        try (
+            BufferedReader reader = new BufferedReader(new FileReader(this.filePath));
+            BufferedWriter writer = new BufferedWriter(new FileWriter("copy" + date + ".txt"))
+        ) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                writer.write(line);
+                writer.newLine();
             }
+        } catch (IOException e) {
+            System.out.println("Impossible to write in file: " + e.getMessage());
+                // logger.error("Impossible to write in file.");
+
+        }
     }
+
+     public void readConsole() {
+    System.out.println(
+        "Enter the file path: ");
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        try {
+        String reponse = reader.readLine();
+        this.filePath = reponse;
+        this.save(); } catch (IOException e) {
+            System.out.println("In/Out error: " + e.getMessage());
+        }
+
 }
-
-    // public void readConsole() {
-    //     try {
-
-    //     }
-    // }
-
-
-
-// public static void main(String[] args) throws IOException {
-//     logger.info("Lancement du programme Epicrafter's Journey.");
-//     try {
-//         // Le programme commence avec un Kit de démarrage.
-//         KitDemarrage kit = new KitDemarrage();
-//         System.out.println("Vous possédez un kit de démarrage !");·
-//         System.out.println(
-//         "Que souhaitez-vous afficher ?\n\t1 - Les idées de constructions. \n\t2 - Le nombre de blocs pour chaque type de blocs présent dans le kit");
-//         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-//         String reponse = reader.readLine();
-//         if (reponse.equals("1")) {
-//             // code pour afficher les idées de constructions
-//         } else if(reponse.equals("2")) {
-//             // code pour affiche le nombre de blocs pour chaque type de blocs présent dans le kit
-//         } else {
-//             System.out.println("La valeur saisie n'est pas valide - tapez 1 ou 2.");
-//         }
-//     } catch (IllegalBlocException e) {
-//         System.out.println("Impossible de construire le Kit de démarrage.");
-//     }
-//     logger.info("Arret du programme Epicrafter's Journey.");
-// }
+}
